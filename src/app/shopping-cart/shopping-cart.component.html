@@ -1,0 +1,49 @@
+<h1>Shopping Cart</h1>
+<div class="card" *ngIf="cart$| async as cart" style="width: 80%;">
+    <div class="card-body padTp">
+        <p>
+            You have {{ cart.totalItemsCount }} items in your shopping cart.
+            <button *ngIf="cart.items.length" (click)="clearCart()" class="float-right btn btn-dark btn-sm">
+                Clear Cart
+            </button>
+        </p>
+    </div>
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Product</th>
+                <th class="text-center" style="width:230px;">Quantity</th>
+                <th class="text-end" style="width:220px; ">Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of cart.items">
+                <td>
+                    <img [src]="item.imageUrl" class="thumbnail" alt="" />
+                </td>
+                <td class="paddingTop">{{ item.title}}</td>
+
+                <td class="paddTop">
+                    <product-quantity [product]="item" [shopping-cart]="cart"> </product-quantity>
+                </td>
+                <td class="text-end paddingTop ">
+                    {{ item.totalPrice| currency:'AED' :true }}
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr class="table-secondary">
+                <th>Total Price</th>
+                <th></th>
+                <th></th>
+                <th class="text-right">{{ cart.totalPrice | currency : 'AED' :true }}</th>
+            </tr>
+            <tr>
+                <th colspan="4">
+                    <a *ngIf="cart.items.length" routerLink="/checkout" class="btn btn-primary ">Check Out here</a>
+                </th>
+            </tr>
+        </tfoot>
+    </table>
+</div>

@@ -1,0 +1,41 @@
+<p>
+    to add the products click the link</p>
+<p>
+    <a routerLink="/admin/product-form" class="btn btn-primary">Add Products</a> </p>
+
+
+
+
+
+
+<p>
+    <!----<input #query (keyup)="filter(query.value)" type="text" class="form-control" placeholder="Search..."-->
+</p>
+<br>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Index</th>
+
+            <th scope="col">Title</th>
+            <th scope="col">Price</th>
+            <th scope="col">Category</th>
+
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of filteredProducts index as i">
+            <td scope="row">{{i + 1}}</td>
+            <td>{{ p. title }}</td>
+            <td> {{p.price}}</td>
+            <td>{{ p.key }}</td>
+
+            <td>
+                <a [routerLink]="['/admin/products/',p.key]">Edit</a>
+            </td>
+
+        </tr>
+    </tbody>
+</table>

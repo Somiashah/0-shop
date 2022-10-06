@@ -1,0 +1,32 @@
+<h4>Order Details</h4>
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <p class="card-text">Date Placed : {{ order?.datePlaced | date }}</p>
+      <hr>
+      <div *ngFor="let o of order.items">
+        <p class="card-text">
+            Product : {{ o.product.title }}
+            <br>
+            Quantity : {{ o.quantity }}
+            <br>
+            Price : {{ o.product.price }}
+            <br>
+        </p> 
+        <hr>
+      </div>
+      <p class="card-text"><strong>Shipping Details</strong></p>
+      <p class="card-text">
+          AddressLine1 : {{ order?.shipping?.addressLine1 }}
+          <br>
+          AddressLine2 : {{ order?.shipping?.addressLine2 }}
+          <br>
+          City : {{ order?.shipping?.city }}
+          <br>
+          Name : {{ order?.shipping?.name }}
+          <br>
+        </p>
+    </div>
+    <button type="button" (click)="delete()" class="btn btn-danger">Cancel Order</button>
+</div>
+
+  

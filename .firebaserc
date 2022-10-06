@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "somiaaadil-31292": {
+      "hosting": {
+        "organicshop": [
+          "somiaaadil-31292"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "somiaaadil-31292"
+  }
+}
